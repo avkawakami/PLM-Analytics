@@ -36,14 +36,14 @@ reader = csv.reader(open('BOM.csv','rU'), delimiter=';')
 
 # Define the list of top level assemblies. 
 # Assumptions are that
-# 1st character of top level assembly is a "D"
-# 8th character of top level assembly is a "X" 
+# 1st character of top level assembly is a "A"
+# 8th character of top level assembly is a "B" 
 
 TopLevel = {}
 counterTL = 0
 for par, chi in reader:
 
-    if str(par)[:1] == 'D' and str(par)[8:9] == 'X': #if needed customize your top level assembly here
+    if str(par)[:1] == 'A' and str(par)[8:9] == 'B': #if needed customize your top level assembly here
         counterTL = counterTL + 1
         TopLevel.setdefault(par, []).append(chi)
 
@@ -53,7 +53,7 @@ reader = csv.reader(open('BOM.csv','rU'), delimiter=';')
 
 structure = {}
 for par2, chi2 in reader:
-    if str(par)[:1] != 'D' and str(par)[8:9] != 'X': #if needed customize your top level assembly here
+    if str(par)[:1] != 'A' and str(par)[8:9] != 'B': #if needed customize your top level assembly here
         structure.setdefault(par2, []).append(chi2)
 
 whereused = TopLevel     
